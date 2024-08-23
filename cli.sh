@@ -63,6 +63,8 @@ run() {
   project_name=$2
   app_name=$3
   project_identity_file="maqubes_${project_name}_rsa"
+  # ensure the vm is running
+  multipass start $project_name
   ip_address=$(multipass info $project_name | grep 'IPv4' | awk '{print $2}')
   echo "Running the ${app_name} application in the ${project_name} vm"
   # run the application in the vm
