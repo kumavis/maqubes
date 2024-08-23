@@ -68,7 +68,6 @@ run() {
   ip_address=$(multipass info $project_name | grep 'IPv4' | awk '{print $2}')
   echo "Running the ${app_name} application in the ${project_name} vm"
   # run the application in the vm
-  # ssh -X -i ~/.ssh/${project_identity_file} ubuntu@${ip_address} "echo 'Running the ${app_name} application'"
   ssh -X -i ~/.ssh/${project_identity_file} ubuntu@${ip_address} "${app_name}"
 }
 
